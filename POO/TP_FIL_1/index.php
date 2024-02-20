@@ -14,7 +14,7 @@ while($res = $stmt->fetch()){
     extract($res); // => $id, $sexe, $prenom, $nom, $age
     $personnes[] = new Personne($id, $sexe, $prenom, $nom, $age);
 }
-    
+
 ?>
 
 <!DOCTYPE html>
