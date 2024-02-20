@@ -1,13 +1,11 @@
 <?php
-include "Compte.php";
+
+include "CompteRemunere.php";
 
 $c1 = new Compte(1015, 5000, 200);
-$c2 = new Compte(650, 6000);
+$cr = new CompteRemunere(100, 450, .5 ,0);
 
-$c1->retirer(5200);
 
-var_dump($c2);
+var_dump( $c1->afficher() );
+var_dump( $cr->afficher() );
 
-$c1->deposer(150);
-$c1->setDecouvert(500);
-var_dump($c1->getDecouvert());

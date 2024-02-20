@@ -5,7 +5,7 @@ class Voiture{
     private $marque;
     private $prix;
     private $annee;
-    private $proprietaire;
+    private Personne $proprietaire;
 
     public function __construct( $matricule,  $marque,  float $prix,  $annee, Personne $proprietaire){
         $this->matricule = $matricule;

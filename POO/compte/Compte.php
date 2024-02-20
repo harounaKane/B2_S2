@@ -2,15 +2,18 @@
 
 class Compte{
 
-    private $numero;
-    private $solde;
-    private $decouvert;
-
+    protected $numero;
+    protected $solde;
+    protected $decouvert;
+    
     function __construct($numero, $montant, $decouvert = 0){
         $this->numero = $numero;
         $this->solde = $montant;
         $this->decouvert = $decouvert;
     }
+
+    public function afficher(){
+        return $this->numero. " Solde: ". $this->solde;    }
 
     public function getDecouvert(){
         return $this->decouvert;
