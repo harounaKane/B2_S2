@@ -7,12 +7,22 @@ class Voiture{
     private $annee;
     private Personne $proprietaire;
 
-    public function __construct( $matricule,  $marque,  float $prix,  $annee, Personne $proprietaire){
-        $this->matricule = $matricule;
+    public function __construct(  $marque,  float $prix,  $annee, Personne $proprietaire){
+      //  $this->matricule = $matricule;
         $this->marque = $marque;
         $this->prix = $prix;
         $this->annee = $annee;
         $this->proprietaire = $proprietaire;
+    }
+
+    function generateMatricule(){
+        $mat = "";
+
+        for($i = 0; $i < 7; $i++){
+            $mat .= chr(rand(65, 90) );
+        }
+
+        $this->matricule = $mat . "-" . rand(100, 999);
     }
 
     public function getMatricule() {return $this->matricule;}

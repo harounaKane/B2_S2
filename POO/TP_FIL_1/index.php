@@ -1,5 +1,6 @@
 <?php
 
+
 include "classes/Personne.php";
 include "classes/Voiture.php";
 
@@ -27,6 +28,7 @@ while($res = $stmt->fetch()){
 <body>
     <nav>
         <a href="formUser.php">Ajouter Personne</a>
+        <a href="formV.php">Ajouter Voiture</a>
     </nav>
 
     <table>
