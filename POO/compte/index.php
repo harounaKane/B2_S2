@@ -2,10 +2,20 @@
 
 include "CompteRemunere.php";
 
-$c1 = new Compte(1015, 5000, 200);
-$cr = new CompteRemunere(100, 450, .5 ,0);
+try{
+    $c1 = new Compte(1015, 500, 0);
+
+    var_dump( $c1 );
 
 
-var_dump( $c1->afficher() );
-var_dump( $cr->afficher() );
+    $c1->retirer(550);
+
+    var_dump( $c1 );
+}catch(Exception $e){
+    $error = $e->getMessage();
+
+
+}
+
+
 

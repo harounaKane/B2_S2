@@ -47,8 +47,7 @@ class Compte{
             $this->solde -= $montant;
             return true;
         }
-
-        return false;
+        throw new Exception("Solde < au montant");
     }
 
     public function virerVers($compteDest, $montant){
