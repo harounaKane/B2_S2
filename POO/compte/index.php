@@ -1,13 +1,21 @@
 <?php
-include "Compte.php";
 
-$c1 = new Compte(1015, 5000, 200);
-$c2 = new Compte(650, 6000);
+include "CompteRemunere.php";
 
-$c1->retirer(5200);
+try{
+    $c1 = new Compte(1015, 500, 0);
 
-var_dump($c2);
+    var_dump( $c1 );
 
-$c1->deposer(150);
-$c1->setDecouvert(500);
-var_dump($c1->getDecouvert());
+
+    $c1->retirer(550);
+
+    var_dump( $c1 );
+}catch(Exception $e){
+    $error = $e->getMessage();
+
+
+}
+
+
+
