@@ -7,37 +7,41 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <h1>JavaScript</h1>
-            <a href="">lien 1</a>
-            <a href="">lien 2</a>
-            <a href="">lien 3</a>
-            <a href="">lien 4</a>
-        </nav>
-    </header>
-
     <main>
-        <h2>Description</h2>
-        <p class="paragraphe">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit non dignissimos ipsa, quaerat accusamus, odio exercitationem soluta fugiat harum repellat labore quidem quae inventore voluptas qui voluptatibus, provident iure asperiores vero quam deleniti sit repellendus sequi! Quisquam ratione reiciendis, perspiciatis voluptas neque, mollitia, rerum nihil suscipit laborum doloremque tenetur id?
-        </p>
-        <p>
-            repellendus sequi! <a href="">Quisquam</a> ratione reiciendis, perspiciatis voluptas neque, mollitia, rerum nihil suscipit laborum doloremque tenetur id?
-        </p>
-        <p class="paragraphe">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit non dignissimos ipsa, quaerat accusamus, odio exercitationem
-        </p>
+        <h2>Jeu</h2>
+        
+        <input type="text" id="mot" value="">
+        <button id="btn">Ok</button>
 
-        <!-- <form action=""> -->
-            <label for="">prenom</label>
-            <input type="text" id="prenom">
-            <label for="">nom</label>
-            <input type="text" id="nom">
-            <input type="submit" id="btn">
-        <!-- </form> -->
+        <div id="res"></div>
 
     </main>
-    <script src="script.js"></script>
+    <script>
+        let tab = ["CISEAUX", "FEUILLE", "PIERRE"];
+        let resultat;
+
+
+        document.getElementById("btn").addEventListener('click', () => {
+            let mot = document.getElementById("mot").value.toUpperCase();
+            let res = document.getElementById("res");
+
+            let choixOrdi = tab[Math.floor(Math.random() * 3)];
+
+            if( choixOrdi == mot )
+                resultat = "Egalité";
+            else if( 
+                    (mot == "PIERRE" && choixOrdi == "CISEAUX") ||
+                    (mot == "CISEAUX" && choixOrdi == "FEUILLE") 
+                    )
+                resultat = "Vous avez gagné";
+            else    
+                resultat = "Vous avez perdu";
+
+            res.innerHTML = "Ordi: " + choixOrdi + " vs humain: " + mot +" = "+ resultat;
+
+            mot.value = "";
+        });
+
+    </script>
 </body>
 </html>

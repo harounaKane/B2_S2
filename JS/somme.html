@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <input type="text" id="nombre1" /> X 
+        <input type="text" id="nombre2" /> = 
+        <button onclick="calculSomme()">Calculer</button>
+        <div id="res"> </div>
+    </p>
+
+</body>
+</html>
+
+<script>
+    let input1 = document.getElementById('nombre1');
+    let input2 = document.getElementById('nombre2');
+    let div = document.getElementById('res');
+
+    function calculSomme(){
+        let res = input1.value * input2.value;
+        div.innerHTML = res;
+
+        if( isNaN(res) ){
+            div.style.color = "pink";
+        }else if( res >= 10 ){
+            div.style.color = "green";
+        }else{
+            div.style.color = "yellow";
+        }
+    }
+
+</script>
