@@ -1,0 +1,19 @@
+body{
+    margin: 10px;
+}
+
+.center{
+    text-align: center;
+}
+img{
+    width: 30%;
+}
+
+
+#barre{
+    display: inline;
+}
+
+/* .hide{
+    display: none;
+} */
