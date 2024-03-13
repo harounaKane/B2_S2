@@ -8,13 +8,14 @@ class ArticleModele{
     }
 
     public function ajouter(Article $article){
-        $query = "INSERT INTO article VALUES(NULL, :libelle, :prix, :descr)";
+        $query = "INSERT INTO article VALUES(NULL, :libelle, :prix, :descr, :cat)";
         $stmt = $this->pdo->prepare($query);
 
         $stmt->execute([
             "libelle"   => $article->getLibelle(),
             "prix"      => $article->getPrix(),
-            "descr"     => $article->getDescription()
+            "descr"     => $article->getDescription(),
+            "cat"       => $article->getCategorieId()
         ]);
     }
 
@@ -26,7 +27,7 @@ class ArticleModele{
 
         while($res = $stmt->fetch()){
             extract($res);
-            $art = new Article($id, $libelle, $prix, $description);
+            $art = new Article($id, $libelle, $prix, $description, $categorie_id);
             $tab[] = $art;
         }
 
@@ -42,7 +43,7 @@ class ArticleModele{
         $res = $stmt->fetch(PDO::FETCH_ASSOC);
 
         extract($res);
-        return new Article($id, $libelle, $prix, $description);
+        return new Article($id, $libelle, $prix, $description, $categorie_id);
 
     }
 
@@ -55,7 +56,15 @@ class ArticleModele{
         
     }
 
-    public function modifier(){
-        
+    public function modifier(Article $art){
+        $query = "UPDATE article SET libelle = :lib, prix = :prix, description = :descr WHERE id = :id";
+
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([
+            "lib"       => $art->getLibelle(),
+            "prix"      => $art->getPrix(),
+            "descr"     => $art->getDescription(),
+            "id"        => $art->getId()
+        ]);
     }
 }
