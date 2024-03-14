@@ -4,16 +4,17 @@ class ArticleController{
 
     function articleHttp(){
 
+        $model = new ArticleModele();
+        $catModel = new CategorieModel();
+        
         if( isset($_GET['action']) ){
             // VALEUR DE L'ACTION
             $action = $_GET['action'];
 
-            $model = new ArticleModele();
-            $catModel = new CategorieModel();
 
             switch( $action ){
                 case "article" :
-                    $articles = $model->afficher();
+                    $articles = $model->afficher(); 
                     include "views/article/index.php";
                     break;
 
@@ -60,15 +61,11 @@ class ArticleController{
                     include "views/article/new.php";
                     break;
             }
+        }else{
+            $articles = $model->afficher(); 
+            include "views/article/index.php";
         }
 
     }
-
-    public function afficher(){
-        $model = new ArticleModele();
-        return $model->afficher();
-    }
-
-
     
 }

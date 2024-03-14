@@ -12,9 +12,9 @@ class ArticleModele{
         $stmt = $this->pdo->prepare($query);
 
         $stmt->execute([
-            "libelle"   => $article->getLibelle(),
+            "libelle"   => htmlentities($article->getLibelle()),
             "prix"      => $article->getPrix(),
-            "descr"     => $article->getDescription(),
+            "descr"     => htmlentities($article->getDescription()),
             "cat"       => $article->getCategorieId()
         ]);
     }
@@ -61,9 +61,9 @@ class ArticleModele{
 
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([
-            "lib"       => $art->getLibelle(),
+            "lib"       => htmlentities($art->getLibelle()),
             "prix"      => $art->getPrix(),
-            "descr"     => $art->getDescription(),
+            "descr"     => htmlentities($art->getDescription()),
             "id"        => $art->getId()
         ]);
     }

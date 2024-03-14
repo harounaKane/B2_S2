@@ -1,3 +1,4 @@
+<?php ob_start(); $title = "ajoute d'article";?>
 <h2>Ajouter Article</h2>
 
 <form action="" method="post">
@@ -24,3 +25,9 @@
 
     <input type="submit">
 </form>
+
+<?php 
+
+$content = ob_get_clean();
+
+include "views/template.php";
