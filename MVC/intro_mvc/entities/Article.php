@@ -37,6 +37,9 @@ class Article{
 
 	public function setCategorieId( $categorie_id): void {$this->categorie_id = $categorie_id;}
 
-	
+	public function __toString()
+    {
+        return $this->libelle;
+    }
 
 }
