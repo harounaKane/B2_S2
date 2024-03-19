@@ -13,6 +13,8 @@
         <a href="?action=categorie" class="btn btn-outline-success">Catégorie</a>
         <a href="?action=client" class="btn btn-outline-success">Client</a>
         <a href="?action=client" class="btn btn-outline-success">Facture</a>
+
+        <a href="?action=getAll" class="btn btn-outline-success">Utilisateur</a>
     </header>
 
     <main class="container-fluid">
