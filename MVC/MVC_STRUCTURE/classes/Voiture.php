@@ -1,11 +1,11 @@
 <?php
 class Voiture{
-    private $id;
+    private int $id;
     private $marque;
     private $prix;
     private User $user;
 
-    public function __construct( $id,  $marque,  $prix, User $user){
+    public function __construct(int $id,  $marque,  float $prix, User $user){
         $this->id = $id;
         $this->marque = $marque;
         $this->prix = $prix;

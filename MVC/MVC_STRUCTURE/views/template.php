@@ -12,7 +12,7 @@
         <nav>
             <?php if(isset($_SESSION['user'])) : ?>
             <a href="?action=lireUsers" class="btn btn-outline-success">User</a>
-            <a href="" class="btn btn-outline-success">Voiture</a>
+            <a href="?action=voitures" class="btn btn-outline-success">Voiture</a>
             <a href="?action=logout" class="btn btn-outline-danger">Logout</a>
 
             <?php else : ?>
@@ -21,6 +21,10 @@
             <?php endif; ?>
             
         </nav>
+        <?php if(isset($_SESSION['SUCCESS']) ): ?>   
+            <div class="alert alert-success"><?= $_SESSION['SUCCESS']; ?>  </div> 
+        <?php endif; ?>   
+
     </header>
 
     <main class="container-fluid">
@@ -30,6 +34,6 @@
     <footer class="text-center p-3 bg-light mt-5">
         &copy; - ILCI
     </footer>
-    
+    <?php unset($_SESSION['SUCCESS']); ?>  
 </body>
 </html>
