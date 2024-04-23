@@ -18,10 +18,12 @@ class IntervenantController extends AbstractController{
 
                         $intervMdl->create($interv);
 
-                        $this->redirect(".");
+                        header("Location: ." );
+                        exit;
+                       // $this->redirect(".");
                     }
-
-                    $this->render("intervenant/form");
+                    include "views/intervenant/form.php";
+                  //  $this->render("intervenant/form");
                     break;
                 
                     case "readAll":
