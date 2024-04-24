@@ -1,5 +1,9 @@
 <?php 
 
+namespace App\Model;
+
+use App\Entity\Categorie;
+
 class CategorieModel extends ModelGenerique{
 
     public function getCategories(){

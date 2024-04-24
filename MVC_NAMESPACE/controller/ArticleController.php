@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Controller;
+
+use App\Entity\Article;
+use App\Model\ArticleModele;
+use App\Model\CategorieModel;
+
 class ArticleController{
 
     function articleHttp(){

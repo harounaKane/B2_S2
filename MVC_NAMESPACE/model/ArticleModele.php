@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Model;
+
+use App\Entity\Article;
+
 class ArticleModele extends ModelGenerique{
 
 

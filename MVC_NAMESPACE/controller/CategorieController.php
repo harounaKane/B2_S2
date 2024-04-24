@@ -1,5 +1,11 @@
 <?php 
 
+namespace App\Controller;
+
+
+use App\Entity\Categorie;
+use App\Model\CategorieModel;
+
 class CategorieController{
 
     function categorieHttp(){

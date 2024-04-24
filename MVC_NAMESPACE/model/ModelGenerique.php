@@ -1,12 +1,13 @@
 <?php
 
+namespace App\Model;
+
 abstract class ModelGenerique{
     protected $pdo;
 
     public function __construct(){
-        $this->pdo = new PDO("mysql:host=localhost;dbname=b2_intro_mvc", "root", "", [
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        $this->pdo = new \PDO("mysql:host=localhost;dbname=b2_intro_mvc", "root", "", [
+            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
         ]);
     }
 
@@ -15,7 +16,7 @@ abstract class ModelGenerique{
 
         $stmt = $this->executerReq($query);
 
-        $stmt->setFetchMode(PDO::FETCH_CLASS, $table);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'App\Entity\\'.$table);
 
         return $stmt->fetchAll();
     }
@@ -25,7 +26,7 @@ abstract class ModelGenerique{
 
         $stmt = $this->executerReq($query, ["id" => $id]);
 
-        $stmt->setFetchMode(PDO::FETCH_CLASS, $table);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $table);
 
         return $stmt->fetch();
     }
