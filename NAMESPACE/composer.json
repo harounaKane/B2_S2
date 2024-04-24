@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\Entity\\": "entity",
+            "App\\Controller\\": "controller",
+            "App\\Model\\": "model"
+        }
+    }
+}
